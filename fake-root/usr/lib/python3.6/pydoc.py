@@ -946,8 +946,7 @@ class HTMLDoc(Doc):
         if name == realname:
             title = '<a name="%s"><strong>%s</strong></a>' % (anchor, realname)
         else:
-            if (cl and realname in cl.__dict__ and
-                cl.__dict__[realname] is object):
+            if cl and inspect.getattr_static(cl, realname, []) is object:
                 reallink = '<a href="#%s">%s</a>' % (
                     cl.__name__ + '-' + realname, realname)
                 skipdocs = 1
@@ -1351,8 +1350,7 @@ location listed above.
         if name == realname:
             title = self.bold(realname)
         else:
-            if (cl and realname in cl.__dict__ and
-                cl.__dict__[realname] is object):
+            if cl and inspect.getattr_static(cl, realname, []) is object:
                 skipdocs = 1
             title = self.bold(name) + ' = ' + realname
         argspec = None
@@ -1723,8 +1721,9 @@ class Helper:
     }
     # Either add symbols to this dictionary or to the symbols dictionary
     # directly: Whichever is easier. They are merged later.
+    _strprefixes = [p + q for p in ('b', 'f', 'r', 'u') for q in ("'", '"')]
     _symbols_inverse = {
-        'STRINGS' : ("'", "'''", "r'", "b'", '"""', '"', 'r"', 'b"'),
+        'STRINGS' : ("'", "'''", '"', '"""', *_strprefixes),
         'OPERATORS' : ('+', '-', '*', '**', '/', '//', '%', '<<', '>>', '&',
                        '|', '^', '~', '<', '>', '<=', '>=', '==', '!=', '<>'),
         'COMPARISON' : ('<', '>', '<=', '>=', '==', '!=', '<>'),
@@ -1881,7 +1880,13 @@ has the same effect as typing a particular string at the help> prompt.
                 if not request: break
             except (KeyboardInterrupt, EOFError):
                 break
-            request = replace(request, '"', '', "'", '').strip()
+            request = request.strip()
+
+            # Make sure significant trailing quoting marks of literals don't
+            # get deleted while cleaning input
+            if (len(request) > 2 and request[0] == request[-1] in ("'", '"')
+                    and request[0] not in request[1:-1]):
+                request = request[1:-1]
             if request.lower() in ('q', 'quit'): break
             if request == 'help':
                 self.intro()
@@ -1992,14 +1997,15 @@ module "pydoc_data.topics" could not be found.
         except KeyError:
             self.output.write('no documentation found for %s\n' % repr(topic))
             return
-        pager(doc.strip() + '\n')
+        doc = doc.strip() + '\n'
         if more_xrefs:
             xrefs = (xrefs or '') + ' ' + more_xrefs
         if xrefs:
             import textwrap
             text = 'Related help topics: ' + ', '.join(xrefs.split()) + '\n'
             wrapped_text = textwrap.wrap(text, 72)
-            self.output.write('\n%s\n' % ''.join(wrapped_text))
+            doc += '\n%s\n' % '\n'.join(wrapped_text)
+        pager(doc)
 
     def _gettopic(self, topic, more_xrefs=''):
         """Return unbuffered tuple of (topic, xrefs).
@@ -2273,6 +2279,10 @@ def _start_server(urlhandler, port):
         def stop(self):
             """Stop the server and this thread nicely"""
             self.docserver.quit = True
+            self.join()
+            # explicitly break a reference cycle: DocServer.callback
+            # has indirectly a reference to ServerThread.
+            self.docserver = None
             self.serving = False
             self.url = None
 
@@ -2308,9 +2318,6 @@ def _url_handler(url, content_type="text/html"):
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 %s</head><body bgcolor="#f0f0f8">%s<div style="clear:both;padding-top:.5em;">%s</div>
 </body></html>''' % (title, css_link, html_navbar(), contents)
-
-        def filelink(self, url, path):
-            return '<a href="getfile?key=%s">%s</a>' % (url, path)
 
 
     html = _HTMLDoc()
@@ -2396,19 +2403,6 @@ def _url_handler(url, content_type="text/html"):
         contents = heading + html.bigsection(
             'key = %s' % key, '#ffffff', '#ee77aa', '<br>'.join(results))
         return 'Search Results', contents
-
-    def html_getfile(path):
-        """Get and display a source file listing safely."""
-        path = urllib.parse.unquote(path)
-        with tokenize.open(path) as fp:
-            lines = html.escape(fp.read())
-        body = '<pre>%s</pre>' % lines
-        heading = html.heading(
-            '<big><big><strong>File Listing</strong></big></big>',
-            '#ffffff', '#7799ee')
-        contents = heading + html.bigsection(
-            'File: %s' % path, '#ffffff', '#ee77aa', body)
-        return 'getfile %s' % path, contents
 
     def html_topics():
         """Index of topic texts available."""
@@ -2501,8 +2495,6 @@ def _url_handler(url, content_type="text/html"):
                 op, _, url = url.partition('=')
                 if op == "search?key":
                     title, content = html_search(url)
-                elif op == "getfile?key":
-                    title, content = html_getfile(url)
                 elif op == "topic?key":
                     # try topics first, then objects.
                     try:

@@ -3,8 +3,8 @@ build_time_vars = {'ABIFLAGS': 'm',
  'AC_APPLE_UNIVERSAL_BUILD': 0,
  'AIX_GENUINE_CPLUSPLUS': 0,
  'ANDROID_API_LEVEL': 0,
- 'AR': 'x86_64-linux-gnu-ar',
- 'ARFLAGS': 'rc',
+ 'AR': 'x86_64-linux-gnu-gcc-ar',
+ 'ARFLAGS': 'rcs',
  'BASECFLAGS': '-Wno-unused-result -Wsign-compare',
  'BASECPPFLAGS': '-IObjects -IInclude -IPython',
  'BASEMODLIBS': '',
@@ -13,51 +13,51 @@ build_time_vars = {'ABIFLAGS': 'm',
  'BLDLIBRARY': '-lpython3.6m',
  'BLDSHARED': 'x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 '
               '-Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions '
-              '-specs=/usr/share/dpkg/no-pie-link.specs -Wl,-z,relro',
+              ' -Wl,-z,relro',
  'BUILDEXE': '',
  'BUILDPYTHON': 'python',
  'BUILD_GNU_TYPE': 'x86_64-pc-linux-gnu',
  'BYTESTR_DEPS': '\\',
  'CC': 'x86_64-linux-gnu-gcc -pthread',
  'CCSHARED': '-fPIC',
- 'CFLAGS': '-Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall '
-           '-Wstrict-prototypes -g '
-           '-fdebug-prefix-map=/build/python3.6-EKG1lX/python3.6-3.6.5=. '
-           '-specs=/usr/share/dpkg/no-pie-compile.specs '
-           '-fstack-protector-strong -Wformat -Werror=format-security',
+ 'CFLAGS': '-Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g '
+           ' '
+           ' -fstack-protector-strong '
+           '-Wformat -Werror=format-security  -g -flto -fuse-linker-plugin '
+           '-ffat-lto-objects',
  'CFLAGSFORSHARED': '-fPIC',
  'CFLAGS_ALIASING': '',
  'CFLAGS_NODIST': '',
  'CONFIGFILES': 'configure configure.ac acconfig.h pyconfig.h.in '
                 'Makefile.pre.in',
  'CONFIGURE_CFLAGS': '-g '
-                     '-fdebug-prefix-map=/build/python3.6-EKG1lX/python3.6-3.6.5=. '
-                     '-specs=/usr/share/dpkg/no-pie-compile.specs '
-                     '-fstack-protector-strong -Wformat '
-                     '-Werror=format-security',
+                     ' '
+                     ' '
+                     '-fstack-protector-strong -Wformat -Werror=format-security',
  'CONFIGURE_CFLAGS_NODIST': '-std=c99 -Wextra -Wno-unused-result '
                             '-Wno-unused-parameter '
-                            '-Wno-missing-field-initializers',
+                            '-Wno-missing-field-initializers '
+                            '-Wno-cast-function-type',
  'CONFIGURE_CPPFLAGS': '-Wdate-time -D_FORTIFY_SOURCE=2',
  'CONFIGURE_LDFLAGS': '-Wl,-Bsymbolic-functions '
-                      '-specs=/usr/share/dpkg/no-pie-link.specs -Wl,-z,relro',
+                      ' -Wl,-z,relro',
  'CONFIG_ARGS': "'--enable-shared' '--prefix=/usr' '--enable-ipv6' "
                 "'--enable-loadable-sqlite-extensions' "
                 "'--with-dbmliborder=bdb:gdbm' '--with-computed-gotos' "
                 "'--without-ensurepip' '--with-system-expat' "
                 "'--with-system-libmpdec' '--with-system-ffi' "
                 "'CC=x86_64-linux-gnu-gcc' 'CFLAGS=-g "
-                '-fdebug-prefix-map=/build/python3.6-EKG1lX/python3.6-3.6.5=. '
-                '-specs=/usr/share/dpkg/no-pie-compile.specs '
-                "-fstack-protector-strong -Wformat -Werror=format-security ' "
+                ' '
+                ' -fstack-protector-strong '
+                "-Wformat -Werror=format-security ' "
                 "'LDFLAGS=-Wl,-Bsymbolic-functions "
-                "-specs=/usr/share/dpkg/no-pie-link.specs -Wl,-z,relro' "
+                " -Wl,-z,relro' "
                 "'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2'",
  'CONFINCLUDEDIR': '/usr/include',
  'CONFINCLUDEPY': '/usr/include/python3.6m',
  'COREPYTHONPATH': ':',
- 'COVERAGE_INFO': '/build/python3.6-EKG1lX/python3.6-3.6.5/build-shared/coverage.info',
- 'COVERAGE_REPORT': '/build/python3.6-EKG1lX/python3.6-3.6.5/build-shared/lcov-report',
+ 'COVERAGE_INFO': '/build/python3.6-8zn2yJ/python3.6-3.6.9/build-shared/coverage.info',
+ 'COVERAGE_REPORT': '/build/python3.6-8zn2yJ/python3.6-3.6.9/build-shared/lcov-report',
  'COVERAGE_REPORT_OPTIONS': '--no-branch-coverage --title "CPython lcov '
                             'report"',
  'CPPFLAGS': '-IObjects -IInclude -IPython -I. -I../Include -Wdate-time '
@@ -503,14 +503,14 @@ build_time_vars = {'ABIFLAGS': 'm',
  'IO_OBJS': '\\',
  'LDCXXSHARED': 'x86_64-linux-gnu-g++ -pthread -shared -Wl,-O1 '
                 '-Wl,-Bsymbolic-functions',
- 'LDFLAGS': '-Wl,-Bsymbolic-functions -specs=/usr/share/dpkg/no-pie-link.specs '
+ 'LDFLAGS': '-Wl,-Bsymbolic-functions  '
             '-Wl,-z,relro',
  'LDLAST': '',
  'LDLIBRARY': 'libpython3.6m.so',
  'LDLIBRARYDIR': '',
  'LDSHARED': 'x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 '
              '-Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions '
-             '-specs=/usr/share/dpkg/no-pie-link.specs -Wl,-z,relro',
+             ' -Wl,-z,relro',
  'LDVERSION': '3.6m',
  'LIBC': '',
  'LIBDEST': '/usr/lib/python3.6',
@@ -547,20 +547,20 @@ build_time_vars = {'ABIFLAGS': 'm',
  'MANDIR': '/usr/share/man',
  'MKDIR_P': '/bin/mkdir -p',
  'MODLIBS': '-lexpat                     -L/usr/lib -lz  -lexpat',
- 'MODNAMES': '_thread array math _struct _random _elementtree _pickle '
+ 'MODNAMES': '_thread array cmath math _struct _random _elementtree _pickle '
              '_datetime _bisect _heapq unicodedata fcntl spwd grp select '
              '_socket _posixsubprocess _md5 _sha1 _sha256 _sha512 _sha3 '
              '_blake2 syslog binascii zlib pyexpat posix errno pwd _sre '
              '_codecs _weakref _functools _operator _collections itertools '
              'atexit _signal _stat time _locale _io zipimport faulthandler '
              '_tracemalloc _symtable xxsubtype',
- 'MODOBJS': 'Modules/_threadmodule.o  Modules/arraymodule.o  '
-            'Modules/mathmodule.o Modules/_math.o  Modules/_struct.o  '
-            'Modules/_randommodule.o  Modules/_elementtree.o  '
-            'Modules/_pickle.o  Modules/_datetimemodule.o  '
-            'Modules/_bisectmodule.o  Modules/_heapqmodule.o  '
-            'Modules/unicodedata.o  Modules/fcntlmodule.o  '
-            'Modules/spwdmodule.o  Modules/grpmodule.o  '
+ 'MODOBJS': '$(sort   Modules/_threadmodule.o  Modules/arraymodule.o  '
+            'Modules/cmathmodule.o Modules/_math.o  Modules/mathmodule.o '
+            'Modules/_math.o  Modules/_struct.o  Modules/_randommodule.o  '
+            'Modules/_elementtree.o  Modules/_pickle.o  '
+            'Modules/_datetimemodule.o  Modules/_bisectmodule.o  '
+            'Modules/_heapqmodule.o  Modules/unicodedata.o  '
+            'Modules/fcntlmodule.o  Modules/spwdmodule.o  Modules/grpmodule.o  '
             'Modules/selectmodule.o  Modules/socketmodule.o  '
             'Modules/_posixsubprocess.o  Modules/md5module.o  '
             'Modules/sha1module.o  Modules/sha256module.o  '
@@ -579,14 +579,14 @@ build_time_vars = {'ABIFLAGS': 'm',
             'Modules/textio.o Modules/stringio.o  Modules/zipimport.o  '
             'Modules/faulthandler.o  Modules/_tracemalloc.o '
             'Modules/hashtable.o  Modules/symtablemodule.o  '
-            'Modules/xxsubtype.o',
+            'Modules/xxsubtype.o)',
  'MODULE_OBJS': '\\',
  'MULTIARCH': 'x86_64-linux-gnu',
  'MULTIARCH_CPPFLAGS': '-DMULTIARCH=\\"x86_64-linux-gnu\\"',
  'MVWDELCH_IS_EXPRESSION': 1,
  'NO_AS_NEEDED': '-Wl,--no-as-needed',
  'OBJECT_OBJS': '\\',
- 'OPT': '-DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes',
+ 'OPT': '-DNDEBUG -g -fwrapv -O2 -Wall',
  'OTHER_LIBTOOL_OPT': '',
  'PACKAGE_BUGREPORT': 0,
  'PACKAGE_NAME': 0,
@@ -620,35 +620,36 @@ build_time_vars = {'ABIFLAGS': 'm',
  'PYTHON_HEADERS': '\\',
  'PYTHON_OBJS': '\\',
  'PY_CFLAGS': '-Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall '
-              '-Wstrict-prototypes -g '
-              '-fdebug-prefix-map=/build/python3.6-EKG1lX/python3.6-3.6.5=. '
-              '-specs=/usr/share/dpkg/no-pie-compile.specs '
-              '-fstack-protector-strong -Wformat -Werror=format-security',
+              '-g  '
+              ' -fstack-protector-strong '
+              '-Wformat -Werror=format-security  -g -flto -fuse-linker-plugin '
+              '-ffat-lto-objects',
  'PY_CFLAGS_NODIST': '-std=c99 -Wextra -Wno-unused-result '
-                     '-Wno-unused-parameter -Wno-missing-field-initializers',
+                     '-Wno-unused-parameter -Wno-missing-field-initializers '
+                     '-Wno-cast-function-type',
  'PY_CORE_CFLAGS': '-Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 '
-                   '-Wall -Wstrict-prototypes -g '
-                   '-fdebug-prefix-map=/build/python3.6-EKG1lX/python3.6-3.6.5=. '
-                   '-specs=/usr/share/dpkg/no-pie-compile.specs '
-                   '-fstack-protector-strong -Wformat -Werror=format-security '
-                   '-std=c99 -Wextra -Wno-unused-result -Wno-unused-parameter '
-                   '-Wno-missing-field-initializers -IObjects -IInclude '
-                   '-IPython -I. -I../Include -Wdate-time -D_FORTIFY_SOURCE=2 '
-                   '-fPIC -DPy_BUILD_CORE',
+                   '-Wall -g '
+                   ' '
+                   ' '
+                   '-fstack-protector-strong -Wformat -Werror=format-security  -g '
+                   '-flto -fuse-linker-plugin -ffat-lto-objects -std=c99 '
+                   '-Wextra -Wno-unused-result -Wno-unused-parameter '
+                   '-Wno-missing-field-initializers -Wno-cast-function-type '
+                   '-IObjects -IInclude -IPython -I. -I../Include -Wdate-time '
+                   '-D_FORTIFY_SOURCE=2 -fPIC -DPy_BUILD_CORE',
  'PY_CPPFLAGS': '-IObjects -IInclude -IPython -I. -I../Include -Wdate-time '
                 '-D_FORTIFY_SOURCE=2',
  'PY_FORMAT_SIZE_T': '"z"',
  'PY_LDFLAGS': '-Wl,-Bsymbolic-functions '
-               '-specs=/usr/share/dpkg/no-pie-link.specs -Wl,-z,relro',
+               ' -Wl,-z,relro',
  'Py_DEBUG': 0,
  'Py_ENABLE_SHARED': 1,
  'Py_HASH_ALGORITHM': 0,
  'QUICKTESTOPTS': '-x test_subprocess test_io test_lib2to3 \\',
- 'RANLIB': 'x86_64-linux-gnu-ranlib',
  'READELF': 'readelf',
  'RESSRCDIR': 'Mac/Resources/framework',
  'RETSIGTYPE': 'void',
- 'RUNSHARED': 'LD_LIBRARY_PATH=/build/python3.6-EKG1lX/python3.6-3.6.5/build-shared',
+ 'RUNSHARED': 'LD_LIBRARY_PATH=/build/python3.6-8zn2yJ/python3.6-3.6.9/build-shared',
  'SCRIPTDIR': '/usr/lib',
  'SETPGRP_HAVE_ARG': 0,
  'SGI_ABI': '',
@@ -689,10 +690,10 @@ build_time_vars = {'ABIFLAGS': 'm',
  'TCLTK_LIBS': '',
  'TESTOPTS': '',
  'TESTPATH': '',
- 'TESTPYTHON': 'LD_LIBRARY_PATH=/build/python3.6-EKG1lX/python3.6-3.6.5/build-shared '
+ 'TESTPYTHON': 'LD_LIBRARY_PATH=/build/python3.6-8zn2yJ/python3.6-3.6.9/build-shared '
                './python',
  'TESTPYTHONOPTS': '',
- 'TESTRUNNER': 'LD_LIBRARY_PATH=/build/python3.6-EKG1lX/python3.6-3.6.5/build-shared '
+ 'TESTRUNNER': 'LD_LIBRARY_PATH=/build/python3.6-8zn2yJ/python3.6-3.6.9/build-shared '
                './python ../Tools/scripts/run_tests.py',
  'TESTTIMEOUT': 1200,
  'THREADOBJ': 'Python/thread.o',
@@ -718,8 +719,8 @@ build_time_vars = {'ABIFLAGS': 'm',
  'WITH_VALGRIND': 0,
  'X87_DOUBLE_ROUNDING': 0,
  'XMLLIBSUBDIRS': 'xml xml/dom xml/etree xml/parsers xml/sax',
- 'abs_builddir': '/build/python3.6-EKG1lX/python3.6-3.6.5/build-shared',
- 'abs_srcdir': '/build/python3.6-EKG1lX/python3.6-3.6.5/build-shared/..',
+ 'abs_builddir': '/build/python3.6-8zn2yJ/python3.6-3.6.9/build-shared',
+ 'abs_srcdir': '/build/python3.6-8zn2yJ/python3.6-3.6.9/build-shared/..',
  'datarootdir': '/usr/share',
  'exec_prefix': '/usr',
  'prefix': '/usr',

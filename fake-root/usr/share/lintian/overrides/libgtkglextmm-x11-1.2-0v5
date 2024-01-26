@@ -1,0 +1,5 @@
+#
+# With C++ maintaining symbols control files is a mess 
+# leaving it out for now
+#
+libgtkglextmm-x11-1.2-0v5: no-symbols-control-file 

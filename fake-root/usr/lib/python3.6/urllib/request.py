@@ -199,7 +199,7 @@ def urlopen(url, data=None, timeout=socket._GLOBAL_DEFAULT_TIMEOUT,
     global _opener
     if cafile or capath or cadefault:
         import warnings
-        warnings.warn("cafile, cpath and cadefault are deprecated, use a "
+        warnings.warn("cafile, capath and cadefault are deprecated, use a "
                       "custom context instead.", DeprecationWarning, 2)
         if context is not None:
             raise ValueError(
@@ -945,8 +945,15 @@ class AbstractBasicAuthHandler:
 
     # allow for double- and single-quoted realm values
     # (single quotes are a violation of the RFC, but appear in the wild)
-    rx = re.compile('(?:.*,)*[ \t]*([^ \t]+)[ \t]+'
-                    'realm=(["\']?)([^"\']*)\\2', re.I)
+    rx = re.compile('(?:^|,)'   # start of the string or ','
+                    '[ \t]*'    # optional whitespaces
+                    '([^ \t,]+)' # scheme like "Basic"
+                    '[ \t]+'    # mandatory whitespaces
+                    # realm=xxx
+                    # realm='xxx'
+                    # realm="xxx"
+                    'realm=(["\']?)([^"\']*)\\2',
+                    re.I)
 
     # XXX could pre-emptively send auth info already accepted (RFC 2617,
     # end of section 2, and section 1.2 immediately after "credentials"
@@ -1747,7 +1754,7 @@ class URLopener:
         name = 'open_' + urltype
         self.type = urltype
         name = name.replace('-', '_')
-        if not hasattr(self, name):
+        if not hasattr(self, name) or name == 'open_local_file':
             if proxy:
                 return self.open_unknown_proxy(proxy, fullurl, data)
             else:

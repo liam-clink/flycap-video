@@ -1561,6 +1561,8 @@ def get_domain(value):
         token, value = get_dot_atom(value)
     except errors.HeaderParseError:
         token, value = get_atom(value)
+    if value and value[0] == '@':
+        raise errors.HeaderParseError('Invalid Domain')
     if leader is not None:
         token[:0] = [leader]
     domain.append(token)
@@ -1876,7 +1878,7 @@ def get_group(value):
     if not value:
         group.defects.append(errors.InvalidHeaderDefect(
             "end of header in group"))
-    if value[0] != ';':
+    elif value[0] != ';':
         raise errors.HeaderParseError(
             "expected ';' at end of group but found {}".format(value))
     group.append(ValueTerminal(';', 'group-terminator'))
@@ -2210,8 +2212,8 @@ def get_section(value):
         digits += value[0]
         value = value[1:]
     if digits[0] == '0' and digits != '0':
-        section.defects.append(errors.InvalidHeaderError("section number"
-            "has an invalid leading 0"))
+        section.defects.append(errors.InvalidHeaderError(
+                "section number has an invalid leading 0"))
     section.number = int(digits)
     section.append(ValueTerminal(digits, 'digits'))
     return section, value
@@ -2725,16 +2727,19 @@ def _fold_as_ew(to_encode, lines, maxlen, last_ew, ew_combine_allowed, charset):
             lines.append(' ')
             # XXX We'll get an infinite loop here if maxlen is <= 7
             continue
-        first_part = to_encode[:text_space]
-        ew = _ew.encode(first_part, charset=encode_as)
-        excess = len(ew) - remaining_space
-        if excess > 0:
-            # encode always chooses the shortest encoding, so this
-            # is guaranteed to fit at this point.
-            first_part = first_part[:-excess]
-            ew = _ew.encode(first_part)
-        lines[-1] += ew
-        to_encode = to_encode[len(first_part):]
+
+        to_encode_word = to_encode[:text_space]
+        encoded_word = _ew.encode(to_encode_word, charset=encode_as)
+        excess = len(encoded_word) - remaining_space
+        while excess > 0:
+            # Since the chunk to encode is guaranteed to fit into less than 100 characters,
+            # shrinking it by one at a time shouldn't take long.
+            to_encode_word = to_encode_word[:-1]
+            encoded_word = _ew.encode(to_encode_word, charset=encode_as)
+            excess = len(encoded_word) - remaining_space
+        lines[-1] += encoded_word
+        to_encode = to_encode[len(to_encode_word):]
+
         if to_encode:
             lines.append(' ')
             new_last_ew = len(lines[-1])

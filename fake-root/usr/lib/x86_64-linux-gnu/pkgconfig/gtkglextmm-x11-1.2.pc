@@ -1,0 +1,16 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${prefix}/lib/x86_64-linux-gnu
+includedir=${prefix}/include
+
+target=x11
+api_version=1.2
+
+multihead=yes
+
+Name: gtkglextmm
+Description: C++ Wrapper for GtkGLExt (${target} target)
+Version: 1.2.0
+Requires: gdkglextmm-${target}-${api_version} gtkglext-1.0 gtkmm-2.4
+Libs: -L${libdir} -lgtkglextmm-${target}-1.2 
+Cflags: -I${includedir}/gtkglextmm-${api_version} 

@@ -80,9 +80,9 @@ trap cleanup 0
 
 # Helper files.  (Some of them are not simple arrays because we spawn
 # subshells later on.)
-TEMPBUNDLE="$(mktemp -t "${CERTBUNDLE}.tmp.XXXXXX")"
-ADDED="$(mktemp -t "ca-certificates.tmp.XXXXXX")"
-REMOVED="$(mktemp -t "ca-certificates.tmp.XXXXXX")"
+TEMPBUNDLE="${ETCCERTSDIR}/${CERTBUNDLE}.new"
+ADDED="$(mktemp --tmpdir "ca-certificates.tmp.XXXXXX")"
+REMOVED="$(mktemp --tmpdir "ca-certificates.tmp.XXXXXX")"
 
 # Adds a certificate to the list of trusted ones.  This includes a symlink
 # in /etc/ssl/certs to the certificate file and its inclusion into the
@@ -164,26 +164,37 @@ then
   done
 fi
 
-rm -f "$CERTBUNDLE"
-
 ADDED_CNT=$(wc -l < "$ADDED")
 REMOVED_CNT=$(wc -l < "$REMOVED")
 
 if [ "$ADDED_CNT" -gt 0 ] || [ "$REMOVED_CNT" -gt 0 ]
 then
   # only run if set of files has changed
+  # Remove orphan symlinks found in ETCCERTSDIR to prevent `openssl rehash`
+  # from exiting with an error. See #895482, #895473.
+  find $ETCCERTSDIR -type l ! -exec test -e {} \; -print | while read orphan
+  do
+    rm -f "$orphan"
+    if [ "$verbose" = 1 ]; then
+      echo "Removed orphan symlink $orphan"
+    fi
+  done
   if [ "$verbose" = 0 ]
   then
     openssl rehash . > /dev/null
   else
-    openssl rehash .
+    openssl rehash -v .
   fi
 fi
 
-chmod 0644 "$TEMPBUNDLE"
-mv -f "$TEMPBUNDLE" "$CERTBUNDLE"
-# Restore proper SELinux label after moving the file
-[ -x /sbin/restorecon ] && /sbin/restorecon "$CERTBUNDLE" >/dev/null 2>&1
+# chmod and mv only if TEMPBUNDLE exists or install may fail, #996005
+if [ -f "$TEMPBUNDLE" ]
+then
+  chmod 0644 "$TEMPBUNDLE"
+  mv -f "$TEMPBUNDLE" "$CERTBUNDLE"
+  # Restore proper SELinux label after moving the file
+  [ -x /sbin/restorecon ] && /sbin/restorecon "$CERTBUNDLE" >/dev/null 2>&1
+fi
 
 echo "$ADDED_CNT added, $REMOVED_CNT removed; done."
 
