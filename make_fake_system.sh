@@ -28,4 +28,8 @@ fi
 # Ensure that the home folder is owned by the user
 sudo chroot $FAKE_ROOT_DIR chown --recursive "$username":"$username" /home/"$username"
 
+cp bionic-sources.list ./fake-root/home/"$username"/
+sudo chroot $FAKE_ROOT_DIR cp /home/"$username"/bionic-sources.list /etc/apt/sources.list
+sudo chroot $FAKE_ROOT_DIR apt update
+
 cp --recursive flycapture2-2.13.3.31-amd64 ./fake-root/home/"$username"/
