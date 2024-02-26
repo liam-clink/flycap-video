@@ -1,98 +1,94 @@
 #include <flycapture/FlyCapture2.h>
-#include <flycapture/FlyCapture2Video.h>
+#include <flycapture/Camera.h>
 #include <iostream>
+#include <sstream>
+#include <chrono>
+#include <thread>
+
+
+void PrintBuildInfo()
+{
+    FlyCapture2::FC2Version fc2Version;
+    FlyCapture2::Utilities::GetLibraryVersion(&fc2Version);
+
+    std::ostringstream version;
+    version << "FlyCapture2 library version: " << fc2Version.major << "."
+            << fc2Version.minor << "." << fc2Version.type << "."
+            << fc2Version.build;
+    std::cout << version.str() << std::endl;
+
+    std::ostringstream timeStamp;
+    timeStamp << "Application build date: " << __DATE__ << " " << __TIME__;
+    std::cout << timeStamp.str() << std::endl << std::endl;
+}
+
+void PrintCameraInfo(FlyCapture2::CameraInfo *pCamInfo)
+{
+        std::cout << std::endl;
+        std::cout << "*** CAMERA INFORMATION ***" << std::endl;
+        std::cout << "Serial number - " << pCamInfo->serialNumber << std::endl;
+        std::cout << "Camera model - " << pCamInfo->modelName << std::endl;
+        std::cout << "Camera vendor - " << pCamInfo->vendorName << std::endl;
+        std::cout << "Sensor - " << pCamInfo->sensorInfo << std::endl;
+        std::cout << "Resolution - " << pCamInfo->sensorResolution << std::endl;
+        std::cout << "Firmware version - " << pCamInfo->firmwareVersion << std::endl;
+        std::cout << "Firmware build time - " << pCamInfo->firmwareBuildTime << std::endl
+                << std::endl;
+}
 
 int main()
 {
-    // Initialize FlyCap
+    PrintBuildInfo();
+
     FlyCapture2::BusManager busMgr;
     FlyCapture2::Error error;
-    unsigned int numCameras;
-    error = busMgr.GetNumOfCameras(&numCameras);
-
-    if (error != FlyCapture2::PGRERROR_OK)
+	unsigned int numCameras;
+	while(true)
     {
-        std::cout << "Problem getting number of cameras\n";
-        error.PrintErrorTrace();
-        return -1;
+        error = busMgr.GetNumOfCameras(&numCameras);
+        if (error != FlyCapture2::PGRERROR_OK)
+        {
+            error.PrintErrorTrace();
+            //return -1;
+        }
+
+        if (numCameras < 1)
+        {
+            std::cout << "No camera detected." << std::endl;
+            //return -1;
+        }
+        else
+        {
+            std::cout << "Number of cameras detected: " << numCameras << std::endl;
+        }
+        
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        
+        error = busMgr.RescanBus();
+        if (error != FlyCapture2::PGRERROR_OK) error.PrintErrorTrace();
     }
+
 
     // Connect to camera
-    FlyCapture2::Camera camera;
-    FlyCapture2::PGRGuid guid;
-    error = busMgr.GetCameraFromIndex(0, &guid);
-    error = camera.Connect(&guid);
-
+    FlyCapture2::Camera test_cam;
+    error = test_cam.Connect();
+    
     if (error != FlyCapture2::PGRERROR_OK)
-    {
-        std::cout << "Problem connecting camera\n";
-        error.PrintErrorTrace();
-        return -1;
-    }
+	{
+		error.PrintErrorTrace();
+		return -1;
+	}
 
-    error = camera.Disconnect();
-    if (error != FlyCapture2::PGRERROR_OK)
-    {
-        std::cout << "Problem disconnecting camera\n";
-        error.PrintErrorTrace();
-        return -1;
-    }
+    // Get the camera information
+	FlyCapture2::CameraInfo camInfo;
+	error = test_cam.GetCameraInfo(&camInfo);
+	if (error != FlyCapture2::PGRERROR_OK)
+	{
+		error.PrintErrorTrace();
+		return -1;
+	}
 
-    error = camera.SetVideoModeAndFrameRate(FlyCapture2::VIDEOMODE_640x480Y16, FlyCapture2::FRAMERATE_30);
-
-    // Start capturing
-    error = camera.StartCapture();
-    if (error != FlyCapture2::PGRERROR_OK)
-    {
-        // Handle the error
-        return -1;
-    }
-
-    // Create AVIRecorder object for saving video
-    FlyCapture2::FlyCapture2Video recorder;
-    FlyCapture2::H264Option settings = FlyCapture2::H264Option();
-    settings.frameRate = 30.0;
-    settings.width = 640;
-    settings.height = 480;
-    settings.bitrate = 10000;
-
-    error = recorder.Open("output.mp4", &settings); // Specify frame rate
-    if (error != FlyCapture2::PGRERROR_OK)
-    {
-        std::cout << "Problem starting H.264 recorder\n";
-        error.PrintErrorTrace();
-        return -1;
-    }
-
-    unsigned int numFrames;
-    std::cout << "Enter desired number of frames: ";
-    std::cin >> numFrames;
-
-    // Capture and save video frames
-    FlyCapture2::Image rawImage;
-    for (int i = 0; i < numFrames; ++i)
-    {
-        error = camera.RetrieveBuffer(&rawImage);
-        if (error != FlyCapture2::PGRERROR_OK)
-        {
-            // Handle the error
-            break;
-        }
-
-        // Process and convert the raw image if needed
-
-        // Save the converted image to the video file
-        error = recorder.Append(&rawImage);
-        if (error != FlyCapture2::PGRERROR_OK)
-        {
-            // Handle the error
-            break;
-        }
-    }
-
-    // Stop capturing and close the video file
-    camera.StopCapture();
-    recorder.Close();
+	PrintCameraInfo(&camInfo);
 
     return 0;
 }
