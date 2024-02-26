@@ -1,0 +1,313 @@
+0000000000216390 B __bss_start
+                 w __cxa_finalize@GLIBC_2.2.5
+                 U __dynamic_cast@CXXABI_1.3
+0000000000216390 D _edata
+0000000000216440 B _end
+000000000000ecb0 T fc2CalculateImageStatistics
+000000000000f130 T fc2CheckDriver
+0000000000009220 T fc2Connect
+000000000000e250 T fc2ConvertImage
+000000000000e360 T fc2ConvertImageTo
+0000000000006bf0 T fc2CreateContext
+0000000000006c80 T fc2CreateGigEContext
+0000000000006dd0 T fc2CreateImage
+00000000000070d0 T fc2CreateImageStatistics
+0000000000007b10 T fc2CreateTopologyNode
+000000000000fa40 T fc2DeregisterAllEvents
+000000000000f8c0 T fc2DeregisterEvent
+0000000000006d10 T fc2DestroyContext
+0000000000006eb0 T fc2DestroyImage
+0000000000007110 T fc2DestroyImageStatistics
+0000000000007b50 T fc2DestroyTopologyNode
+0000000000006ed0 T fc2DetermineBitsPerPixel
+00000000000092b0 T fc2Disconnect
+0000000000008a50 T fc2DiscoverGigECameras
+000000000000c700 T fc2DiscoverGigEPacketSize
+000000000000d640 T fc2EnableLUT
+0000000000007140 T fc2ErrorToDescription
+0000000000007d10 T fc2FireBusReset
+000000000000adf0 T fc2FireSoftwareTrigger
+000000000000ae80 T fc2FireSoftwareTriggerBroadcast
+0000000000008970 T fc2ForceAllIPAddressesAutomatically
+00000000000089e0 T fc2ForceIPAddressAutomatically
+0000000000008830 T fc2ForceIPAddressToCamera
+000000000000d520 T fc2GetActiveLUTBank
+0000000000007ee0 T fc2GetCameraFromIndex
+0000000000007f70 T fc2GetCameraFromIPAddress
+0000000000008020 T fc2GetCameraFromSerialNumber
+000000000000a020 T fc2GetCameraInfo
+00000000000080b0 T fc2GetCameraSerialNumberFromIndex
+000000000000ebf0 T fc2GetChannelHistogram
+000000000000eb30 T fc2GetChannelMean
+000000000000ea70 T fc2GetChannelNumPixelValues
+000000000000e9a0 T fc2GetChannelPixelValueRange
+000000000000e8d0 T fc2GetChannelRange
+000000000000e720 T fc2GetChannelStatus
+0000000000009de0 T fc2GetConfiguration
+000000000000f5a0 T fc2GetCycleTime
+000000000000dd40 T fc2GetDefaultColorProcessing
+000000000000de50 T fc2GetDefaultOutputFormat
+0000000000008270 T fc2GetDeviceFromIndex
+000000000000f1a0 T fc2GetDriverDeviceName
+000000000000da60 T fc2GetEmbeddedImageInfo
+000000000000bc90 T fc2GetFormat7Configuration
+000000000000b9a0 T fc2GetFormat7Info
+000000000000cd30 T fc2GetGigEConfig
+000000000000cf10 T fc2GetGigEImageBinningSettings
+000000000000cb30 T fc2GetGigEImageSettings
+000000000000ca10 T fc2GetGigEImageSettingsInfo
+000000000000c890 T fc2GetGigEImagingMode
+000000000000c550 T fc2GetGigEProperty
+000000000000d150 T fc2GetGigEStreamChannelInfo
+000000000000a880 T fc2GetGPIOPinDirection
+0000000000007040 T fc2GetImageColorProcessing
+0000000000006ee0 T fc2GetImageData
+0000000000006f80 T fc2GetImageDimensions
+0000000000006f10 T fc2GetImageMetadata
+000000000000efc0 T fc2GetImageStatistics
+0000000000007070 T fc2GetImageTimeStamp
+0000000000008140 T fc2GetInterfaceTypeFromGuid
+000000000000f360 T fc2GetLibraryVersion
+000000000000d460 T fc2GetLUTBankInfo
+000000000000d6e0 T fc2GetLUTChannel
+000000000000d370 T fc2GetLUTInfo
+000000000000d820 T fc2GetMemoryChannel
+000000000000d9d0 T fc2GetMemoryChannelInfo
+0000000000007da0 T fc2GetNumOfCameras
+00000000000081e0 T fc2GetNumOfDevices
+000000000000d090 T fc2GetNumStreamChannels
+000000000000a590 T fc2GetProperty
+000000000000a420 T fc2GetPropertyInfo
+0000000000006dc0 T fc2GetRegisterString
+000000000000f680 T fc2GetStats
+000000000000b470 T fc2GetStrobe
+000000000000b370 T fc2GetStrobeInfo
+000000000000f2d0 T fc2GetSystemInfo
+00000000000085a0 T fc2GetTopology
+000000000000b080 T fc2GetTriggerDelay
+000000000000af10 T fc2GetTriggerDelayInfo
+000000000000ab50 T fc2GetTriggerMode
+000000000000aa60 T fc2GetTriggerModeInfo
+0000000000008460 T fc2GetUsbLinkInfo
+0000000000008500 T fc2GetUsbPortStatus
+000000000000b810 T fc2GetVideoModeAndFrameRate
+000000000000b740 T fc2GetVideoModeAndFrameRateInfo
+000000000000edc0 T fc2ImageStatisticsDisableAll
+000000000000ed40 T fc2ImageStatisticsEnableAll
+000000000000ee40 T fc2ImageStatisticsEnableGreyOnly
+000000000000ef40 T fc2ImageStatisticsEnableHSLOnly
+000000000000eec0 T fc2ImageStatisticsEnableRGBOnly
+0000000000007e30 T fc2IsCameraControlable
+0000000000006d80 T fc2IsConnected
+000000000000f3e0 T fc2LaunchBrowser
+000000000000f4c0 T fc2LaunchCommand
+000000000000f530 T fc2LaunchCommandAsync
+000000000000f450 T fc2LaunchHelp
+000000000000c7c0 T fc2QueryGigEImagingMode
+000000000000c480 T fc2ReadGVCPMemory
+000000000000c150 T fc2ReadGVCPRegister
+000000000000c2e0 T fc2ReadGVCPRegisterBlock
+0000000000008300 T fc2ReadPhyRegister
+0000000000009040 T fc2ReadRegister
+0000000000009180 T fc2ReadRegisterBlock
+000000000000f980 T fc2RegisterAllEvents
+0000000000008670 T fc2RegisterCallback
+000000000000f800 T fc2RegisterEvent
+00000000000087a0 T fc2RescanBus
+000000000000d940 T fc2RestoreFromMemoryChannel
+0000000000009a70 T fc2RetrieveBuffer
+000000000000dec0 T fc2SaveImage
+000000000000df50 T fc2SaveImageWithOption
+000000000000d8b0 T fc2SaveToMemoryChannel
+000000000000d5b0 T fc2SetActiveLUTBank
+0000000000009340 T fc2SetCallback
+000000000000e800 T fc2SetChannelStatus
+0000000000009f00 T fc2SetConfiguration
+000000000000dca0 T fc2SetDefaultColorProcessing
+000000000000ddb0 T fc2SetDefaultOutputFormat
+000000000000db80 T fc2SetEmbeddedImageInfo
+000000000000bec0 T fc2SetFormat7Configuration
+000000000000bdb0 T fc2SetFormat7ConfigurationPacket
+000000000000ce20 T fc2SetGigEConfig
+000000000000cfd0 T fc2SetGigEImageBinningSettings
+000000000000cc30 T fc2SetGigEImageSettings
+000000000000c950 T fc2SetGigEImagingMode
+000000000000c630 T fc2SetGigEProperty
+000000000000d260 T fc2SetGigEStreamChannelInfo
+000000000000a920 T fc2SetGPIOPinDirection
+000000000000a9c0 T fc2SetGPIOPinDirectionBroadcast
+000000000000e6a0 T fc2SetImageColorProcessing
+000000000000e470 T fc2SetImageData
+000000000000e580 T fc2SetImageDimensions
+000000000000d780 T fc2SetLUTChannel
+000000000000a680 T fc2SetProperty
+000000000000a780 T fc2SetPropertyBroadcast
+000000000000b560 T fc2SetStrobe
+000000000000b650 T fc2SetStrobeBroadcast
+000000000000b170 T fc2SetTriggerDelay
+000000000000b270 T fc2SetTriggerDelayBroadcast
+000000000000ac30 T fc2SetTriggerMode
+000000000000ad10 T fc2SetTriggerModeBroadcast
+0000000000009d40 T fc2SetUserBuffers
+000000000000b8e0 T fc2SetVideoModeAndFrameRate
+00000000000093e0 T fc2StartCapture
+0000000000009470 T fc2StartCaptureCallback
+0000000000009510 T fc2StartSyncCapture
+0000000000009760 T fc2StartSyncCaptureCallback
+0000000000009b90 T fc2StopCapture
+000000000000fb30 T fc2TopologyNodeAddChild
+0000000000007c80 T fc2TopologyNodeAddPortType
+0000000000007cb0 T fc2TopologyNodeAssignGuidToNode
+0000000000007ce0 T fc2TopologyNodeAssignGuidToNodeEx
+000000000000fad0 T fc2TopologyNodeGetChild
+0000000000007bc0 T fc2TopologyNodeGetDeviceId
+0000000000007b80 T fc2TopologyNodeGetGuid
+0000000000007c00 T fc2TopologyNodeGetInterfaceType
+0000000000007be0 T fc2TopologyNodeGetNodeType
+0000000000007c20 T fc2TopologyNodeGetNumChildren
+0000000000007c40 T fc2TopologyNodeGetNumPorts
+0000000000007c60 T fc2TopologyNodeGetPortType
+0000000000008710 T fc2UnregisterCallback
+000000000000bb10 T fc2ValidateFormat7Settings
+0000000000009c20 T fc2WaitForBufferEvent
+000000000000c3b0 T fc2WriteGVCPMemory
+000000000000bfd0 T fc2WriteGVCPRegister
+000000000000c210 T fc2WriteGVCPRegisterBlock
+000000000000c090 T fc2WriteGVCPRegisterBroadcast
+00000000000083b0 T fc2WritePhyRegister
+0000000000008fa0 T fc2WriteRegister
+00000000000090e0 T fc2WriteRegisterBlock
+0000000000008f00 T fc2WriteRegisterBroadcast
+0000000000010d2c T _fini
+0000000000006a80 T GetInternal
+                 w __gmon_start__
+                 U __gxx_personality_v0@CXXABI_1.3
+0000000000006290 T _init
+                 w _ITM_deregisterTMCloneTable
+                 w _ITM_registerTMCloneTable
+                 U memcpy@GLIBC_2.14
+                 U memset@GLIBC_2.2.5
+                 U __stack_chk_fail@GLIBC_2.4
+                 U __strcpy_chk@GLIBC_2.3.4
+                 U _Unwind_Resume@GCC_3.0
+0000000000006b20 T ImageCallback(FlyCapture2::Image*, void const*)
+                 U operator delete[](void*)@GLIBCXX_3.4
+                 U operator delete(void*)@GLIBCXX_3.4
+                 U FlyCapture2::BusManager::DiscoverGigECameras(FlyCapture2::CameraInfo*, unsigned int*)
+                 U FlyCapture2::BusManager::IsCameraControlable(FlyCapture2::PGRGuid*, bool*)
+                 U FlyCapture2::BusManager::ForceIPAddressToCamera(FlyCapture2::MACAddress, FlyCapture2::IPAddress, FlyCapture2::IPAddress, FlyCapture2::IPAddress)
+                 U FlyCapture2::BusManager::ForceAllIPAddressesAutomatically(unsigned int)
+                 U FlyCapture2::BusManager::ForceAllIPAddressesAutomatically()
+                 U FlyCapture2::BusManager::BusManager()
+                 U FlyCapture2::GigECamera::StartSyncCapture(unsigned int, FlyCapture2::GigECamera const**, void (* const*)(FlyCapture2::Image*, void const*), void const**)
+                 U FlyCapture2::GigECamera::GigECamera()
+                 U FlyCapture2::TopologyNode::TopologyNode(FlyCapture2::TopologyNode const&)
+                 U FlyCapture2::TopologyNode::TopologyNode()
+                 U FlyCapture2::TopologyNode::~TopologyNode()
+                 U FlyCapture2::ImageStatistics::DisableAll()
+                 U FlyCapture2::ImageStatistics::EnableHSLOnly()
+                 U FlyCapture2::ImageStatistics::EnableRGBOnly()
+                 U FlyCapture2::ImageStatistics::EnableGreyOnly()
+                 U FlyCapture2::ImageStatistics::SetChannelStatus(FlyCapture2::ImageStatistics::StatisticsChannel, bool)
+                 U FlyCapture2::ImageStatistics::EnableAll()
+                 U FlyCapture2::ImageStatistics::ImageStatistics()
+                 U FlyCapture2::Error::operator=(FlyCapture2::Error const&)
+                 U FlyCapture2::Error::Error()
+                 U FlyCapture2::Error::~Error()
+                 U FlyCapture2::Image::DetermineBitsPerPixel(FlyCapture2::PixelFormat)
+                 U FlyCapture2::Image::GetDefaultOutputFormat()
+                 U FlyCapture2::Image::SetDefaultOutputFormat(FlyCapture2::PixelFormat)
+                 U FlyCapture2::Image::GetDefaultColorProcessing()
+                 U FlyCapture2::Image::SetDefaultColorProcessing(FlyCapture2::ColorProcessingAlgorithm)
+                 U FlyCapture2::Image::Image()
+                 U FlyCapture2::Camera::StartSyncCapture(unsigned int, FlyCapture2::Camera const**, void (* const*)(FlyCapture2::Image*, void const*), void const**)
+                 U FlyCapture2::Camera::GetRegisterString(unsigned int)
+                 U FlyCapture2::Camera::Camera()
+                 U FlyCapture2::Internal::GetInternal(unsigned int)
+                 U FlyCapture2::Utilities::LaunchHelp(char const*)
+                 U FlyCapture2::Utilities::CheckDriver(FlyCapture2::PGRGuid const*)
+                 U FlyCapture2::Utilities::GetSystemInfo(FlyCapture2::SystemInfo*)
+                 U FlyCapture2::Utilities::LaunchBrowser(char const*)
+                 U FlyCapture2::Utilities::LaunchCommand(char const*)
+                 U FlyCapture2::Utilities::GetLibraryVersion(FlyCapture2::FC2Version*)
+                 U FlyCapture2::Utilities::LaunchCommandAsync(char const*, void (*)(FlyCapture2::Error, void*), void*)
+                 U FlyCapture2::Utilities::GetDriverDeviceName(FlyCapture2::PGRGuid const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+0000000000010b30 T Translate::ToC(FlyCapture2::CameraInfo*, _fc2CameraInfo*)
+0000000000010630 T Translate::ToC(FlyCapture2::FC2Version*, _fc2Version*)
+00000000000107f0 T Translate::ToC(FlyCapture2::GigEConfig*, _fc2GigEConfig*)
+0000000000010670 T Translate::ToC(FlyCapture2::MACAddress*, _fc2MACAddress*)
+000000000000ff50 T Translate::ToC(FlyCapture2::StrobeInfo*, _fc2StrobeInfo*)
+0000000000010540 T Translate::ToC(FlyCapture2::SystemInfo*, _fc2SystemInfo*)
+00000000000103d0 T Translate::ToC(FlyCapture2::CameraStats*, _fc2CameraStats*)
+0000000000010050 T Translate::ToC(FlyCapture2::Format7Info*, _fc2Format7Info*)
+000000000000fef0 T Translate::ToC(FlyCapture2::TriggerMode*, _fc2TriggerMode*)
+0000000000010700 T Translate::ToC(FlyCapture2::GigEProperty*, _fc2GigEProperty*)
+000000000000fd10 T Translate::ToC(FlyCapture2::PropertyInfo*, _fc2PropertyInfo*)
+00000000000102f0 T Translate::ToC(FlyCapture2::ImageMetadata*, _fc2ImageMetadata*)
+000000000000ffc0 T Translate::ToC(FlyCapture2::StrobeControl*, _fc2StrobeControl*)
+000000000000fe90 T Translate::ToC(FlyCapture2::TriggerModeInfo*, _fc2TriggerModeInfo*)
+0000000000010260 T Translate::ToC(FlyCapture2::EmbeddedImageInfo*, _fc2EmbeddedImageInfo*)
+0000000000010130 T Translate::ToC(FlyCapture2::Format7PacketInfo*, _fc2Format7PacketInfo*)
+0000000000010890 T Translate::ToC(FlyCapture2::GigEImageSettings*, _fc2GigEImageSettings*)
+0000000000010780 T Translate::ToC(FlyCapture2::GigEStreamChannel*, _fc2GigEStreamChannel*)
+00000000000100e0 T Translate::ToC(FlyCapture2::Format7ImageSettings*, _fc2Format7ImageSettings*)
+0000000000010840 T Translate::ToC(FlyCapture2::GigEImageSettingsInfo*, _fc2GigEImageSettingsInfo*)
+00000000000101c0 T Translate::ToC(FlyCapture2::EmbeddedImageInfoProperty*, _fc2EmbeddedImageInfoProperty*)
+0000000000010180 T Translate::ToC(FlyCapture2::LUTData*, _fc2LUTData*)
+000000000000fe00 T Translate::ToC(FlyCapture2::Property*, _Property*)
+0000000000010ae0 T Translate::ToC(FlyCapture2::ConfigROM*, _fc2ConfigROM*)
+000000000000fc20 T Translate::ToC(FlyCapture2::FC2Config*, _fc2Config*)
+00000000000106b0 T Translate::ToC(FlyCapture2::IPAddress*, _fc2IPAddress*)
+0000000000010350 T Translate::ToC(FlyCapture2::TimeStamp*, _fc2TimeStamp*)
+000000000000fbe0 T Translate::ToCpp(_fc2Config*, FlyCapture2::FC2Config*)
+0000000000010150 T Translate::ToCpp(_fc2LUTData*, FlyCapture2::LUTData*)
+0000000000010610 T Translate::ToCpp(_fc2Version*, FlyCapture2::FC2Version*)
+00000000000108b0 T Translate::ToCpp(_fc2ConfigROM*, FlyCapture2::ConfigROM*)
+0000000000010690 T Translate::ToCpp(_fc2IPAddress*, FlyCapture2::IPAddress*)
+0000000000010390 T Translate::ToCpp(_fc2PGMOption*, FlyCapture2::PGMOption*)
+0000000000010370 T Translate::ToCpp(_fc2PNGOption*, FlyCapture2::PNGOption*)
+0000000000010380 T Translate::ToCpp(_fc2PPMOption*, FlyCapture2::PPMOption*)
+0000000000010330 T Translate::ToCpp(_fc2TimeStamp*, FlyCapture2::TimeStamp*)
+0000000000010900 T Translate::ToCpp(_fc2CameraInfo*, FlyCapture2::CameraInfo*)
+00000000000107d0 T Translate::ToCpp(_fc2GigEConfig*, FlyCapture2::GigEConfig*)
+00000000000103b0 T Translate::ToCpp(_fc2JPEGOption*, FlyCapture2::JPEGOption*)
+00000000000103c0 T Translate::ToCpp(_fc2JPG2Option*, FlyCapture2::JPG2Option*)
+0000000000010650 T Translate::ToCpp(_fc2MACAddress*, FlyCapture2::MACAddress*)
+000000000000ff10 T Translate::ToCpp(_fc2StrobeInfo*, FlyCapture2::StrobeInfo*)
+0000000000010470 T Translate::ToCpp(_fc2SystemInfo*, FlyCapture2::SystemInfo*)
+00000000000103a0 T Translate::ToCpp(_fc2TIFFOption*, FlyCapture2::TIFFOption*)
+000000000000fff0 T Translate::ToCpp(_fc2Format7Info*, FlyCapture2::Format7Info*)
+000000000000fed0 T Translate::ToCpp(_fc2TriggerMode*, FlyCapture2::TriggerMode*)
+00000000000106d0 T Translate::ToCpp(_fc2GigEProperty*, FlyCapture2::GigEProperty*)
+000000000000fc60 T Translate::ToCpp(_fc2PropertyInfo*, FlyCapture2::PropertyInfo*)
+000000000000ff90 T Translate::ToCpp(_fc2StrobeControl*, FlyCapture2::StrobeControl*)
+000000000000fe40 T Translate::ToCpp(_fc2TriggerModeInfo*, FlyCapture2::TriggerModeInfo*)
+00000000000101d0 T Translate::ToCpp(_fc2EmbeddedImageInfo*, FlyCapture2::EmbeddedImageInfo*)
+0000000000010110 T Translate::ToCpp(_fc2Format7PacketInfo*, FlyCapture2::Format7PacketInfo*)
+0000000000010870 T Translate::ToCpp(_fc2GigEImageSettings*, FlyCapture2::GigEImageSettings*)
+0000000000010730 T Translate::ToCpp(_fc2GigEStreamChannel*, FlyCapture2::GigEStreamChannel*)
+00000000000100b0 T Translate::ToCpp(_fc2Format7ImageSettings*, FlyCapture2::Format7ImageSettings*)
+0000000000010810 T Translate::ToCpp(_fc2GigEImageSettingsInfo*, FlyCapture2::GigEImageSettingsInfo*)
+00000000000101a0 T Translate::ToCpp(_fc2EmbeddedImageInfoProperty*, FlyCapture2::EmbeddedImageInfoProperty*)
+000000000000fdb0 T Translate::ToCpp(_Property*, FlyCapture2::Property*)
+000000000000fbc0 T Translate::Translate()
+000000000000fbc0 T Translate::Translate()
+000000000000fbd0 T Translate::~Translate()
+000000000000fbd0 T Translate::~Translate()
+                 U operator new[](unsigned long)@GLIBCXX_3.4
+                 U FlyCapture2::ImageStatistics::GetHistogram(FlyCapture2::ImageStatistics::StatisticsChannel, int**) const
+                 U FlyCapture2::ImageStatistics::GetStatistics(FlyCapture2::ImageStatistics::StatisticsChannel, unsigned int*, unsigned int*, unsigned int*, unsigned int*, unsigned int*, float*, int**) const
+                 U FlyCapture2::ImageStatistics::GetChannelStatus(FlyCapture2::ImageStatistics::StatisticsChannel, bool*) const
+                 U FlyCapture2::ImageStatistics::GetNumPixelValues(FlyCapture2::ImageStatistics::StatisticsChannel, unsigned int*) const
+                 U FlyCapture2::ImageStatistics::GetPixelValueRange(FlyCapture2::ImageStatistics::StatisticsChannel, unsigned int*, unsigned int*) const
+                 U FlyCapture2::ImageStatistics::GetMean(FlyCapture2::ImageStatistics::StatisticsChannel, float*) const
+                 U FlyCapture2::ImageStatistics::GetRange(FlyCapture2::ImageStatistics::StatisticsChannel, unsigned int*, unsigned int*) const
+                 U FlyCapture2::Error::GetType() const
+                 U FlyCapture2::Error::operator==(FlyCapture2::ErrorType const&) const
+                 U FlyCapture2::Image::GetDimensions(unsigned int*, unsigned int*, unsigned int*, FlyCapture2::PixelFormat*, FlyCapture2::BayerTileFormat*) const
+                 U operator new(unsigned long)@GLIBCXX_3.4
+0000000000215db0 V typeinfo for FlyCapture2::CameraBase
+                 U typeinfo for FlyCapture2::GigECamera
+                 U typeinfo for FlyCapture2::Camera
+0000000000010e10 V typeinfo name for FlyCapture2::CameraBase
+                 U vtable for __cxxabiv1::__class_type_info@CXXABI_1.3

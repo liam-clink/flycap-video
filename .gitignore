@@ -1,3 +1,6 @@
 .vscode
 *.x
 build
+
+fake-root
+ghidra

@@ -1,0 +1,34 @@
+0000000000202088 B __bss_start
+                 w __cxa_finalize@GLIBC_2.2.5
+0000000000202088 D _edata
+0000000000202090 B _end
+00000000000011f0 T fc2VideoAppend
+0000000000000ea0 T fc2VideoAVIOpen
+00000000000012b0 T fc2VideoClose
+0000000000000e00 T fc2VideoCreate
+0000000000000e40 T fc2VideoDestroy
+00000000000010d0 T fc2VideoH264Open
+0000000000000fc0 T fc2VideoMJPGOpen
+0000000000000e70 T fc2VideoSetMaximumSize
+00000000000013bc T _fini
+                 w __gmon_start__
+                 U __gxx_personality_v0@CXXABI_1.3
+0000000000000c20 T _init
+                 w _ITM_deregisterTMCloneTable
+                 w _ITM_registerTMCloneTable
+                 U __stack_chk_fail@GLIBC_2.4
+                 U _Unwind_Resume@GCC_3.0
+                 U operator delete(void*)@GLIBCXX_3.4
+                 U FlyCapture2::FlyCapture2Video::FlyCapture2Video()
+                 U FlyCapture2::Error::operator=(FlyCapture2::Error const&)
+                 U FlyCapture2::Error::Error()
+                 U FlyCapture2::Error::~Error()
+0000000000001380 T Translate::ToCpp(_fc2AVIOption*, FlyCapture2::AVIOption*)
+00000000000013a0 T Translate::ToCpp(_fc2H264Option*, FlyCapture2::H264Option*)
+0000000000001390 T Translate::ToCpp(_fc2MJPGOption*, FlyCapture2::MJPGOption*)
+0000000000001360 T Translate::Translate()
+0000000000001360 T Translate::Translate()
+0000000000001370 T Translate::~Translate()
+0000000000001370 T Translate::~Translate()
+                 U FlyCapture2::Error::GetType() const
+                 U operator new(unsigned long)@GLIBCXX_3.4
